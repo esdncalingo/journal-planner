@@ -18,4 +18,4 @@ test:
 
 production:
   <<: *default
-  url: <%= ENV['DATABASE_URL'] %>
+  url: <%= ENV['postgres://danielc:3GUFNkfzMm1lakQ9Resvp2KSjnFQob4G@dpg-cg96cm9mbg54mbdi68vg-a/journal_planner_dev'] %>
