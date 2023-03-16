@@ -5,6 +5,6 @@
         <a class="navbar-list text-slate-200 font-bold text-lg" href="#">News</a>
         <a class="navbar-list text-slate-200 font-bold text-lg" href="#">Services</a>
         <a class="navbar-list text-slate-200 font-bold text-lg" href="#">Contact</a>
-        <button class="navbar-list h-[40px] w-[120px] bg-slate-200 rounded-lg"><span class=" text-slate-800 font-bold">Login</span></button>
+        <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "navbar-list h-[40px] w-[120px] bg-slate-200 rounded-lg"%>
     </nav>
 </header>
