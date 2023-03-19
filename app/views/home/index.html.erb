@@ -1,8 +1,40 @@
-<div class="flex flex-col">
-    <span class="text-slate-50 text-8xl p-2">Welcome to Journal Planner</span>
-    <button class="h-[40px] w-[120px] bg-slate-200 rounded-lg ring-2  ring-amber-500 ring-offset-2 hover:ring-4">Create Your Task</button>
-</div>
+<%= render "navbar"%>
 
-<div>
+<div class="container mx-auto mt-28 px-5 flex flex-col justify-center items-center gap-8">
+
+    <div class="flex flex-col">
+        <span class="text-slate-50 text-8xl p-2">Welcome to Journal Planner</span>
+    </div>
+
+    <div class="flex gap-4">
+
+        <div class=" bg-slate-500 p-4">
+            <%= render 'categories/sidepanel'%>
+        </div>
+
+        <div>
+            <div class="flex flex-col bg-amber-500 w-[100%] p-4">
+
+                <div class="bg-slate-500 w-[100%] mt-4 rounded-md">  
+                
+                    <div class="grid grid-cols-[20px,200px,300px,100px,auto] p-2 gap-2 border-solid border-slate-100 border-2">
+                        <span class=" field-list">ID</span>
+                        <span class="field-list">Tasks</span>
+                        <span class="field-list">Due Date</span>
+                        <span class="field-list">Status</span>
+                        <span>Action</span>
+                    </div>
+                    <div class="grid grid-cols-[20px,200px,300px,100px,auto] gap-2 p-2">
+                    
+                        <% @tasks.each do |item| %>
+                        <%= render "tasks/list", item: item%>
+                        <%end%>
+                        
+                    </div>
+                
+                </div>
+            </div>  
+        </div>
+    </div>
     
 </div>

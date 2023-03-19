@@ -1,0 +1,7 @@
+<%=form_with(model: @category ,) do |form|%>
+    <div class="flex flex-col gap-2">
+    <% @categories.each do |cat|%>
+        <%=render 'categories/links', categories: cat %>
+    <%end%>
+    </div>
+<%end%>

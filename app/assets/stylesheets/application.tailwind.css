@@ -2,9 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+
 /* @layer components {
-  .text-logo {
-    @apply text-4xl text-slate-50 select-none;
+  .field-list {
+    @apply text-2xl text-slate-50 select-none;
   }
 } */
 
@@ -15,4 +16,12 @@
 }
 .navbar-list {
   display: inline;
+}
+
+.field-list {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 2rem;
+  color: rgb(248, 250, 252) !important;
+  user-select: none;
 }

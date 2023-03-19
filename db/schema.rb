@@ -25,6 +25,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_135548) do
     t.string "title"
     t.text "description"
     t.date "deadline"
+    t.string "status"
     t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
