@@ -3,7 +3,7 @@ class HomeController < ApplicationController
     before_action :selected_task, only: [:index, :show]
 
     def index
-        @categories = Category.all
+        @categories = Category.all.where(user_id: current_user.id)
     end
 
     def new

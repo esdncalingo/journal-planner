@@ -5,13 +5,12 @@ class CategoriesController < ApplicationController
     end
 
     def new
-        respond_to do |format|
-          format.html
-          format.js
-        end
+        
     end
 
     def create
+        @category = Category.new(category_params)
+        @category.save
     end
 
     def show
@@ -25,4 +24,11 @@ class CategoriesController < ApplicationController
 
     def delete
     end
+
+    private
+
+    def category_params
+        params.require(:category).permit(:name, :user_id)
+    end
+
 end
