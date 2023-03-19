@@ -27,6 +27,6 @@ class HomeController < ApplicationController
     private
 
     def selected_task
-        @tasks = Task.all.where(category_id: params[:item])
+        @tasks = Task.all.where(category_id: params[:id])
     end
 end

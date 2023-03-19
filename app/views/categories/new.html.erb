@@ -1,6 +1,9 @@
 <%=form_with(model: @category) do |f|%>
-    <%=f.text_field :name%>
+<div class="flex flex-col gap-2 justify-center items-center bg-slate-500 p-6 rounded-lg w-[400px]">
+    <%=f.label "Category" , class: "self-start" %>
+    <%=f.text_field :name, class: "w-[100%] rounded-lg"%>
 
-    <%=f.submit %>
+    <%=f.submit "Create", {class: "h-[40px] w-[120px] bg-slate-200 rounded-lg ring-2  ring-amber-500 ring-offset-2 hover:ring-4 mt-4"} %>
+</div>
 <%end%>
 <%= link_to "Back to Home", "/home"%>

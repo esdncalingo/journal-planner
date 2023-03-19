@@ -1,4 +1,4 @@
  <div>
-    <%= link_to categories.name, {:item => categories.id}, class: "bg-amber-500 text-center w-[200px]"%>
-    <%= link_to "New Task", new_tasks_path(item: categories.id)%>
+    <%= link_to categories.name, {:id => categories.id}, class: "bg-amber-500 text-center w-[200px]"%>
+    <%= link_to "New Task", new_tasks_path(:id => categories.id)%>
 </div>

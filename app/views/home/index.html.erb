@@ -13,27 +13,7 @@
         </div>
 
         <div>
-            <div class="flex flex-col bg-amber-500 w-[100%] p-4">
-
-                <div class="min-h-[200px] w-[100%] mt-4 rounded-md">  
-                
-                    <div class=" bg-slate-500 grid grid-cols-[20px,200px,300px,100px,auto] p-2 gap-2 border-solid border-slate-100 border-2">
-                        <span class=" field-list">ID</span>
-                        <span class="field-list">Tasks</span>
-                        <span class="field-list">Due Date</span>
-                        <span class="field-list">Status</span>
-                        <span>Action</span>
-                    </div>
-                    <div class=" bg-zinc-300 grid grid-cols-[20px,200px,300px,100px,auto] gap-2 p-2">
-                    
-                        <% @tasks.each do |item| %>
-                        <%= render "tasks/list", item: item%>
-                        <%end%>
-                        
-                    </div>
-                
-                </div>
-            </div>  
+            <%= render 'tasks/table' %>
         </div>
     </div>
     
