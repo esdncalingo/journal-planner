@@ -1,0 +1,8 @@
+<%=form_with(model: @task) do |f|%>
+    <%=f.text_field :title%>
+    <%=f.text_area :description%>
+    <%=f.text_field :deadline%>
+
+    <%=f.submit %>
+<%end%>
+<%= link_to "Back to Home", "/home"%>

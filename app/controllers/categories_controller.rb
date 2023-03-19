@@ -5,12 +5,16 @@ class CategoriesController < ApplicationController
     end
 
     def new
-        
+        @category = Category.new
     end
 
     def create
         @category = Category.new(category_params)
-        @category.save
+        @category.user_id = current_user.id
+        
+        if @category.save
+            redirect_to "/home"
+        end
     end
 
     def show
@@ -22,7 +26,7 @@ class CategoriesController < ApplicationController
     def update
     end
 
-    def delete
+    def destroy
     end
 
     private

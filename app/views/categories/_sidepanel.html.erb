@@ -1,14 +1,11 @@
-<%=form_with(model: @category ,) do |form|%>
-    <div class="flex flex-col gap-2">
-        <div>
-            <span>Category</span>
-            <%= form_with(model: @category) do |form| %>
-                <%=form.text_field :name%>
-                <%=form.submit "Add", :user_id => current_user.id%>
-            <%end%>
-        </div>
-        <% @categories.each do |cat|%>
-            <%=render 'categories/links', categories: cat %>
-        <%end%>
+<div class="flex flex-col gap-2">
+    <div>
+        <span>Category</span>
+        
+        <%=link_to "Add New", new_category_path%>
+        
     </div>
-<%end%>
+    <% @categories.each do |cat|%>
+        <%=render 'categories/links', categories: cat %>
+    <%end%>
+</div>
