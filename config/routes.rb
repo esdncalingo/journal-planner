@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get "tasks" => "tasks#index"
   get "tasks/new" => "tasks#new",as: "new_tasks"
   post "tasks" => "tasks#create", as: "create_tasks"
+  get "tasks/:id" => "tasks#show", as: "show_tasks"
 
   get 'home' => 'home#index'
 

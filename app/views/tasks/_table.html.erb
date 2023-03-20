@@ -1,15 +1,15 @@
-<div class="flex flex-col bg-amber-500 w-[100%] p-4">
-    <div class="min-h-[200px] w-[100%] mt-4 rounded-md">  
+<div class="flex flex-col w-[80%] p-2">
+    <div class="min-h-[200px] w-[100%]">  
     
-        <div class=" bg-slate-500 grid grid-cols-[20px,200px,300px,100px,auto] p-2 gap-2 border-solid border-slate-100 border-2">
-            <span class=" field-list">ID</span>
-            <span class="field-list">Tasks</span>
-            <span class="field-list">Due Date</span>
-            <span class="field-list">Status</span>
-            <span>Action</span>
+        <div class=" bg-zinc-600 grid grid-cols-[20px,200px,auto,100px,150px] p-2 gap-2 rounded-t-2xl">
+            <span class=" text-slate-200">ID</span>
+            <span class="text-slate-200">Tasks</span>
+            <span class="text-slate-200">Due Date</span>
+            <span class="text-slate-200">Status</span>
+            <span class="text-slate-200 text-center">Action</span>
         </div>
 
-        <div class=" bg-zinc-300 grid grid-cols-[20px,200px,300px,100px,auto] gap-2 p-2">
+        <div class="grid grid-cols-[20px,200px,auto,100px,150px] gap-2 p-2 rounded-b-md">
         
             <% @tasks.each do |item| %>
                 <%= render "tasks/list", item: item%>

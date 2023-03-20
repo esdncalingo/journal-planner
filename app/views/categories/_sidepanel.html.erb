@@ -1,8 +1,8 @@
-<div class="flex flex-col gap-2">
-    <div>
-        <span>Category</span>
+<div class="flex flex-col gap-3">
+    <div class="flex w-[100%]">
+        <span class="font-bold text-slate-200">Category</span>
         
-        <%=link_to "Add New", new_category_path%>
+        <%=link_to "Add New", new_category_path, class: "h-[30px] w-[80px] text-center rounded-lg p-1 ml-auto bg-transparent ring-green-500 ring-2 ring-offset-2 ring-offset-lime-500 text-slate-200" %>
         
     </div>
     <% @categories.each do |cat|%>
