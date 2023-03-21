@@ -1,0 +1,12 @@
+<form action="/categories/<%=params[:id]%>/tasks" method="post" class="flex flex-col gap-2 justify-center items-center bg-slate-500 p-6 rounded-3xl border-2 w-[400px] drop-shadow-md">
+    <label class="self-start" for="title">Title</label>
+    <input name="title" type="text" class="w-[100%] rounded-lg">
+
+    <label class="self-start" for="description">Description</label>
+    <textarea name="description" type="text" class="w-[100%] rounded-lg p-2 min-h-[150px]"></textarea>
+
+    <label class="self-start" for="deadline">Due Date</label>
+    <input name="deadline" type="text" class="w-[100%] rounded-lg">
+
+    <button type="submit" class="h-[40px] w-[120px] bg-slate-200 rounded-lg ring-2  ring-amber-500 ring-offset-2 hover:ring-4 mt-4">Ok Test</button>
+</form>

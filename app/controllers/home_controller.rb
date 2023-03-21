@@ -27,6 +27,9 @@ class HomeController < ApplicationController
     private
 
     def selected_task
-        @tasks = Task.all.where(category_id: params[:id])
+        if params[:id]
+        category = Category.find(params[:id])
+        @tasks = category.tasks
+        end
     end
 end

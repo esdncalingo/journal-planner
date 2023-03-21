@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+    #after_action method/action, only: [:new]
 
     def index
         @categories = Category.all
@@ -30,6 +31,7 @@ class CategoriesController < ApplicationController
     end
 
     private
+    
 
     def category_params
         params.require(:category).permit(:name, :user_id)

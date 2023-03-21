@@ -1,17 +1,3 @@
-
-<%=form_with(model: @task) do |f|%>
-    <div class="flex flex-col gap-2 justify-center items-center bg-slate-500 p-6 rounded-3xl border-2 w-[400px] drop-shadow-md">
-        <%=f.label :title , class: "self-start"%>
-        <%=f.text_field :title, class: "w-[100%] rounded-lg"%>
-
-        <%=f.label :description, class: "self-start"%>
-        <%=f.text_area :description, class: "w-[100%] rounded-lg p-2 min-h-[150px]" %>
-
-        <%=f.label "Due Date", class: "self-start"%>
-        <%=f.text_field :deadline, class: "w-[100%] rounded-lg" %>
-
-        <%=f.submit "Create", {class: "h-[40px] w-[120px] bg-slate-200 rounded-lg ring-2  ring-amber-500 ring-offset-2 hover:ring-4 mt-4"}%>
-    </div>
-<%end%>
+<%= render "form"%>
 
 <%= link_to "Back to Home", "/home", class: "text-blue-500 underline"%>

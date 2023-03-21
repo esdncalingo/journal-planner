@@ -5,5 +5,5 @@
 <span class="flex gap-2 justify-center">
     <button class="text-green-600">Show</button>
     <button class="text-blue-600">Edit</button>
-    <button class="text-red-600">Delete</button>
+    <%=button_to "Delete", delete_tasks_categories_path(:tid => item.id, :id => params[:id] ), method: :delete, class: "text-red-600"%>
 </span>

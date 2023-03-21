@@ -1,31 +1,27 @@
 class TasksController < ApplicationController
     protect_from_forgery with: :null_session
-        
-    
+    # before_action :set_category
     
     def index
-        @category = Category.find(params[:id])
     end
 
     def new
-        @category = Category.find(params[:id])
-        @task = @category.tasks.new
+        @task = Task.new
+    
     end
 
     def create
-
-        @category = Category.find(params[:id])
-
-        @task = @category.tasks.new(tasks_params)
+        @task = Task.new(tasks_params)
         @task.status = "pending"
+        @task.category_id = params[:id]
 
         if @task.save
-            redirect_to '/home'
+            redirect_to "/home"
         end
     end
 
     def show
-        @category = Category.find(params[:id])
+        
     end
 
     def edit
@@ -35,12 +31,15 @@ class TasksController < ApplicationController
     end
 
     def delete
+        Task.find(params[:tid]).destroy
+
+        redirect_to "/home"
     end
 
     private
 
     def tasks_params
-        params.require(:task).permit(:title, :description, :deadline, :status, :category_id)
+        params.permit(:title, :description, :deadline, :status, :category_id)
     end
     
 end
