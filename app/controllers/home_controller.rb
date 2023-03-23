@@ -28,8 +28,8 @@ class HomeController < ApplicationController
 
     def selected_task
         if params[:id]
-        category = Category.find(params[:id])
-        @tasks = category.tasks
+            category = Category.find(params[:id])
+            @tasks = category.tasks
         end
     end
 end

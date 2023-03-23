@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   resource :categories do
     get ":id/tasks" => "tasks#index"
     get ":id/tasks/new" => "tasks#new",as: "new_tasks"
-    post ":id/tasks(.:format)" => "tasks#create", as: "create_tasks"
+    post ":id/tasks" => "tasks#create", as: "create_tasks"
+    get ":id/tasks/:tid/edit" => "tasks#edit", as: "edit_tasks"
     get ":id/tasks/:tid" => "tasks#show", as: "show_tasks"
+    patch ":id/tasks/:tid" => "tasks#update", as: "update_tasks"
     delete ":id/tasks/tid" => "tasks#delete", as: "delete_tasks"
   end
 
