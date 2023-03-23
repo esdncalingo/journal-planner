@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
     #after_action method/action, only: [:new]
+    before_action :get_category
 
     def index
         @categories = Category.all
@@ -25,6 +26,9 @@ class CategoriesController < ApplicationController
     end
 
     def update
+        if @category.update(category_params)
+            redirect_to "/home"
+        end
     end
 
     def destroy
@@ -32,6 +36,11 @@ class CategoriesController < ApplicationController
 
     private
     
+    def get_category
+        if params[:id]
+            @category = Category.find(params[:id])
+        end
+    end
 
     def category_params
         params.require(:category).permit(:name, :user_id)

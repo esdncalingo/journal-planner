@@ -6,14 +6,15 @@ Rails.application.routes.draw do
   #post "categories" => "categories#create" , as: "create_category"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   
-  resource :categories do
-    get ":id/tasks" => "tasks#index"
-    get ":id/tasks/new" => "tasks#new",as: "new_tasks"
-    post ":id/tasks" => "tasks#create", as: "create_tasks"
-    get ":id/tasks/:tid/edit" => "tasks#edit", as: "edit_tasks"
-    get ":id/tasks/:tid" => "tasks#show", as: "show_tasks"
-    patch ":id/tasks/:tid" => "tasks#update", as: "update_tasks"
-    delete ":id/tasks/tid" => "tasks#delete", as: "delete_tasks"
+  resources :categories do
+    #get "tasks" => "tasks#index"
+    #get "tasks/new" => "tasks#new",as: "new_tasks"
+    #post "tasks" => "tasks#create", as: "create_tasks"
+    #get "tasks/:tid/edit" => "tasks#edit", as: "edit_tasks"
+    #get "tasks/:tid" => "tasks#show", as: "show_tasks"
+    #patch "tasks/:tid" => "tasks#update", as: "update_tasks"
+    #delete "tasks/tid" => "tasks#delete", as: "delete_tasks"
+    resources :tasks
   end
 
   

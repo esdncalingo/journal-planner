@@ -1,5 +1,7 @@
+<%=render "alert"%>
+
 <span class=" text-slate-200"><%="Edit Tasks"%></span>
 
 <%= render "form", method: "patch", btn: "Update"%>
 
-<%= link_to "Back to Home", "/home?id=#{params[:id]}", class: "text-blue-500 underline"%>
+<%= link_to "Back to Home", "/home?category_id=#{params[:category_id]}", class: "text-blue-500 underline"%>

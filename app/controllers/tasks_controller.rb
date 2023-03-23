@@ -16,7 +16,7 @@ class TasksController < ApplicationController
         @task.status = "pending"
 
         if @task.save
-            redirect_to "/home?id=#{params[:id]}", notice: "New task has been created"
+            redirect_to "/home?category_id=#{params[:category_id]}", notice: "New task has been created"
         end
     end
 
@@ -28,25 +28,27 @@ class TasksController < ApplicationController
     end
 
     def update
-        if @task.update(tasks_params)
-            redirect_to "/home?id=#{params[:id]}", notice: "Updated"
+        respond_to do |format|
+            if @task.update(tasks_params)
+                format.html {redirect_to "/home?category_id=#{params[:category_id]}", notice: "Updated"}
+            end
         end
     end
 
-    def delete
-        Task.find(params[:tid]).destroy
+    def destroy
+        Task.find(params[:id]).destroy
 
-        redirect_to "/home?id=#{params[:id]}"
+        redirect_to "/home?category_id=#{params[:category_id]}"
     end
 
     private
 
     def get_task
-        @task = Task.find(params[:tid])
+        @task = Task.find(params[:id])
     end
 
     def get_category
-        @category = Category.find(params[:id])
+        @category = Category.find(params[:category_id])
     end
 
     def tasks_params
