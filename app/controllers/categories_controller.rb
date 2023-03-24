@@ -27,7 +27,7 @@ class CategoriesController < ApplicationController
 
     def update
         if @category.update(category_params)
-            redirect_to "/home"
+            redirect_to "/home?category_id=#{params[:id]}"
         end
     end
 

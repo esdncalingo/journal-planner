@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
     protect_from_forgery with: :null_session
-    before_action :get_task, only: [:show, :edit, :update]
+    before_action :get_task, only: [:show, :edit, :update, :destroy]
     before_action :get_category
     
     def index
@@ -30,13 +30,13 @@ class TasksController < ApplicationController
     def update
         respond_to do |format|
             if @task.update(tasks_params)
-                format.html {redirect_to "/home?category_id=#{params[:category_id]}", notice: "Updated"}
+                redirect_to "/home?category_id=#{params[:category_id]}", notice: "Updated"
             end
         end
     end
 
     def destroy
-        Task.find(params[:id]).destroy
+        @task.destroy
 
         redirect_to "/home?category_id=#{params[:category_id]}"
     end

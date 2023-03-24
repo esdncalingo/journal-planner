@@ -1,0 +1,39 @@
+
+<div class="flex gap-2 justify-center">
+    <div class="flex flex-col gap-2 items-center bg-slate-500 p-6 rounded-3xl border-2 w-[400px] drop-shadow-md">
+        
+        <span class=" justify-self-start font-bold text-2xl"><%=task.title%></span>
+        
+        <div class="flex flex-col w-[100%]">
+            <span class="flex w-[100%]">
+                <span class="font-bold">Status :</span>
+                <span class="flex ml-auto gap-1 items-center font-semibold"><i class="fa-solid fa-circle text-amber-500 "></i><%=task.status%></span>
+            </span>
+
+            <span class="flex w-[100%]">
+                <span class="font-bold">Created At :</span>
+                <span class="ml-auto"><%=task.created_at%></span>
+            </span>
+            <span class="flex w-[100%]">
+                <span class="font-bold">Updated At :</span>
+                <span class="ml-auto"><%=task.updated_at%></span>
+            </span>
+            <span class="flex w-[100%]">
+                <span class="font-bold">Deadline :</span>
+                <span class="ml-auto"><%=task.deadline%></span>
+            </span>
+        </div>
+
+        <span class="w-[100%] h-[3px] bg-slate-400 rounded-full"></span>
+        
+        <div class="w-[100%]">
+            <span class="font-bold text-xl">Description</span>
+            <p><%=task.description%></p>
+        </div>
+        
+        <span class="flex gap-2 justify-center">
+            <%=link_to "Edit", edit_category_task_path(:id => params[:id], :category_id => params[:category_id]),class: "text-blue-600"%>
+            <%=button_to "Delete", category_task_path(:id => params[:id], :category_id => params[:category_id]), method: :delete, class: "text-red-600"%>
+        </span>
+    </div>
+</div>

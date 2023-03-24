@@ -1,8 +1,9 @@
  <div class="flex gap-3 bg-zinc-700 justify-center items-center p-1 rounded-2xl drop-shadow-md">
     <%= link_to categories.name, {:category_id => categories.id}, class: "w-[100%] font-bold text-blue-300 underline ml-2"%>
     
-    <div class="flex gap-4 justify-center p-1 w-[100px] bg-slate-200 rounded-xl text-center font-medium border-2 border-solid border-zinc-400">
+    <div class="flex gap-2 items-center justify-center p-1 w-[90px] bg-slate-200 rounded-xl text-center font-medium border-2 border-solid border-zinc-400">
         <%= link_to raw('<i class="fa-solid fa-pen-to-square"></i>'), edit_category_path(:id => categories.id)%>
+        <span class="h-[20px] w-[1px] bg-slate-400 rounded-full"></span>
         <%= link_to raw('<i class="fa-solid fa-circle-plus"></i>'), new_category_task_path(categories) %>
     </div>
 </div>
