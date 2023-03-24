@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
     #after_action method/action, only: [:new]
     before_action :get_category
+    before_action :get_user
 
     def index
         @categories = Category.all
@@ -11,8 +12,7 @@ class CategoriesController < ApplicationController
     end
 
     def create
-        @category = Category.new(category_params)
-        @category.user_id = current_user.id
+        @category = @user.categories.new(category_params)
         
         if @category.save
             redirect_to "/home"
@@ -35,6 +35,10 @@ class CategoriesController < ApplicationController
     end
 
     private
+
+    def get_user
+        @user = User.find_by_id(current_user.id)
+    end
     
     def get_category
         if params[:id]

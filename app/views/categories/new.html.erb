@@ -1,3 +1,12 @@
-<%= render "form", btn: "Create"%>
+<%= turbo_frame_tag "modal" do %>
+    <div class="modal fixed z-10 p-[2em] left-[40%] top-[40%] transform translate-x-0 translate-y-0 overflow-auto border-1 border-solid drop-shadow-sm">
+        <%= render "form", btn: "Create"%>
 
-<%= link_to "Back to Home", "/home", class: "text-blue-500 underline"%>
+        <%= link_to "Cancel", "#", data: {
+            controller: "modals",
+            action: "modals#close",
+            },
+            class: "text-blue-500 underline"
+            %>
+    </div>
+<% end %>

@@ -1,9 +1,11 @@
- <div class="flex gap-3 bg-zinc-700 justify-center items-center p-1 rounded-2xl drop-shadow-md">
-    <%= link_to categories.name, {:category_id => categories.id}, class: "w-[100%] font-bold text-blue-300 underline ml-2"%>
-    
-    <div class="flex gap-2 items-center justify-center p-1 w-[90px] bg-slate-200 rounded-xl text-center font-medium border-2 border-solid border-zinc-400">
-        <%= link_to raw('<i class="fa-solid fa-pen-to-square"></i>'), edit_category_path(:id => categories.id)%>
-        <span class="h-[20px] w-[1px] bg-slate-400 rounded-full"></span>
-        <%= link_to raw('<i class="fa-solid fa-circle-plus"></i>'), new_category_task_path(categories) %>
-    </div>
-</div>
+
+<button class="flex bg-zinc-700 items-center p-1 rounded-2xl drop-shadow-md hover:ring hover:ring-amber-500 active:bg-amber-700 focus:outline-none focus:ring focus:ring-amber-500">
+    <%= link_to :category_id => categories.id do %>
+        <span class="w-[100%] font-bold text-blue-300 ml-2"><%=categories.name%></span>
+        <div class="flex gap-1 items-center justify-center p-1 w-[60px] bg-slate-200 rounded-xl text-center font-medium border-2 border-solid border-zinc-400 ml-auto">
+            <%= link_to raw('<i class="fa-solid fa-pen-to-square"></i>'), edit_category_path(:id => categories.id), data: {turbo_frame: "modal"}, class: "hover:bg-blue-200"%>
+            <span class="h-[20px] w-[1px] bg-slate-400 rounded-full"></span>
+            <%= link_to raw('<i class="fa-solid fa-circle-plus"></i>'), new_category_task_path(categories), class: "hover:bg-blue-200" %>
+        </div>
+    <% end %>
+</button>

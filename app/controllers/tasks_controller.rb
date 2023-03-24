@@ -28,10 +28,8 @@ class TasksController < ApplicationController
     end
 
     def update
-        respond_to do |format|
-            if @task.update(tasks_params)
-                redirect_to "/home?category_id=#{params[:category_id]}", notice: "Updated"
-            end
+        if @task.update(tasks_params)
+            redirect_to "/home?category_id=#{params[:category_id]}", notice: "Updated"
         end
     end
 

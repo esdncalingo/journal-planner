@@ -7,7 +7,7 @@
         <div class="flex flex-col w-[100%]">
             <span class="flex w-[100%]">
                 <span class="font-bold">Status :</span>
-                <span class="flex ml-auto gap-1 items-center font-semibold"><i class="fa-solid fa-circle text-amber-500 "></i><%=task.status%></span>
+                <span class="flex ml-auto gap-1 items-center font-semibold"><i class="fa-solid fa-circle <%=task.status === "complete" ? "text-green-500" : "text-amber-500" %>"></i><%=task.status%></span>
             </span>
 
             <span class="flex w-[100%]">
@@ -27,13 +27,14 @@
         <span class="w-[100%] h-[3px] bg-slate-400 rounded-full"></span>
         
         <div class="w-[100%]">
-            <span class="font-bold text-xl">Description</span>
-            <p><%=task.description%></p>
+            <span class="shiro font-bold text-xl">Description</span>
+            <p class="min-h-[200px]"><%=task.description%></p>
         </div>
-        
-        <span class="flex gap-2 justify-center">
-            <%=link_to "Edit", edit_category_task_path(:id => params[:id], :category_id => params[:category_id]),class: "text-blue-600"%>
-            <%=button_to "Delete", category_task_path(:id => params[:id], :category_id => params[:category_id]), method: :delete, class: "text-red-600"%>
+
+        <span class="flex gap-4 justify-center">
+            <%= button_to "Complete", category_task_path(:id => params[:id], :category_id => params[:category_id], :status => "complete"), method: :patch, class: "navbar-list h-[23px] w-[80px] bg-slate-200 rounded-lg ring-2 ring-amber-500 ring-offset-2 hover:ring-4"%>
+            <%= link_to "Edit", edit_category_task_path(:id => params[:id], :category_id => params[:category_id]),class: "navbar-list text-center self-center h-[23px] w-[80px] bg-slate-200 rounded-lg ring-2 ring-amber-500 ring-offset-2 hover:ring-4"%>
+            <%= button_to "Delete", category_task_path(:id => params[:id], :category_id => params[:category_id]), method: :delete, class: "navbar-list h-[23px] w-[80px] bg-slate-200 rounded-lg ring-2 ring-amber-500 ring-offset-2 hover:ring-4"%>
         </span>
     </div>
 </div>
