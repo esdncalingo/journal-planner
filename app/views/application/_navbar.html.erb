@@ -3,7 +3,7 @@
     <nav class="flex items-center justify-center space-x-6  ml-auto">
         <a class="navbar-list text-slate-200 font-bold text-lg" href="#">Home</a>
         <a class="navbar-list text-slate-200 font-bold text-lg" href="#">About</a>
-        <a class="navbar-list text-slate-200 font-bold text-lg" href="#">Tasks</a>
+        <%= link_to "Tasks", {:tasks => 1}, class: "text-slate-200 font-bold text-lg"%>
         <a class="navbar-list text-slate-200 font-bold text-lg" href="#">Contact</a>
         <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "navbar-list h-[40px] w-[120px] bg-slate-200 rounded-lg"%>
     </nav>

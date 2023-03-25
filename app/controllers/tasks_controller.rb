@@ -13,7 +13,7 @@ class TasksController < ApplicationController
 
     def create
         @task = @category.tasks.new(tasks_params)
-        @task.status = "pending"
+        @task.status = "ongoing"
 
         if @task.save
             redirect_to "/home?category_id=#{params[:category_id]}", notice: "New task has been created"

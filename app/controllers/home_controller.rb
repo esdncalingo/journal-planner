@@ -27,9 +27,15 @@ class HomeController < ApplicationController
     private
 
     def selected_task
+        user = User.find(current_user.id)
         if params[:category_id]
             category = Category.find(params[:category_id])
             @tasks = category.tasks
+        elsif params[:view] === "completed"
+            @tasks = user.tasks.where(status: "completed")
+        else
+            
+            @tasks = user.tasks.where('tasks.created_at BETWEEN ? AND ?', DateTime.now.beginning_of_day, DateTime.now.end_of_day).all
         end
     end
 end

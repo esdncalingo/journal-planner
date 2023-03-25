@@ -3,7 +3,7 @@
 <span class="break-all text-slate-200"><%=item.deadline%></span>
 <span class="break-all text-slate-200"><%=item.status%></span>
 <span class="flex gap-2 justify-center">
-    <%=link_to "Show", category_task_path(:id => item.id, :category_id => params[:category_id]), class: "text-green-600"%>
-    <%=link_to "Edit", edit_category_task_path(:id => item.id, :category_id => params[:category_id]),class: "text-blue-600"%>
-    <%=button_to "Delete", category_task_path(:id => item.id, :category_id => params[:category_id]), method: :delete, class: "text-red-600"%>
+    <%=link_to "Show", category_task_path(:id => item.id, :category_id => item.category_id), class: "text-green-600"%>
+    <%=link_to "Edit", edit_category_task_path(:id => item.id, :category_id => item.category_id),class: "text-blue-600"%>
+    <%=button_to "Delete", category_task_path(:id => item.id, :category_id => item.category_id), method: :delete, class: "text-red-600"%>
 </span>
