@@ -4,6 +4,7 @@ export default class extends Controller {
   connect() {
     
   }
+  
   close(e) {
     e.preventDefault();
 

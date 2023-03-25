@@ -32,7 +32,7 @@
         </div>
 
         <span class="flex gap-4 justify-center">
-            <%= button_to "Complete", category_task_path(:id => params[:id], :category_id => params[:category_id], :status => "complete"), method: :patch, class: "navbar-list h-[23px] w-[80px] bg-slate-200 rounded-lg ring-2 ring-amber-500 ring-offset-2 hover:ring-4"%>
+            <%= button_to "Complete", category_task_path(:id => params[:id], :category_id => params[:category_id], status: "complete"), method: :patch, class: "navbar-list h-[23px] w-[80px] bg-slate-200 rounded-lg ring-2 ring-amber-500 ring-offset-2 hover:ring-4"%>
             <%= link_to "Edit", edit_category_task_path(:id => params[:id], :category_id => params[:category_id]),class: "navbar-list text-center self-center h-[23px] w-[80px] bg-slate-200 rounded-lg ring-2 ring-amber-500 ring-offset-2 hover:ring-4"%>
             <%= button_to "Delete", category_task_path(:id => params[:id], :category_id => params[:category_id]), method: :delete, class: "navbar-list h-[23px] w-[80px] bg-slate-200 rounded-lg ring-2 ring-amber-500 ring-offset-2 hover:ring-4"%>
         </span>

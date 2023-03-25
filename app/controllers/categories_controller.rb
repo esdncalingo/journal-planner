@@ -27,7 +27,13 @@ class CategoriesController < ApplicationController
 
     def update
         if @category.update(category_params)
-            redirect_to "/home?category_id=#{params[:id]}"
+            #redirect_to "/home?category_id=#{params[:id]}"
+            format.turbo_stream do
+                render turbo_stream: turbo_stream.redirect(model_url(@model))
+            end
+            format.html { redirect_to model_url(@model), notice: "Updated." }
+        else
+            format.html { render :edit, status: :unprocessable_entity }
         end
     end
 
@@ -47,7 +53,7 @@ class CategoriesController < ApplicationController
     end
 
     def category_params
-        params.require(:category).permit(:name, :user_id)
+        params.require(:category).permit(:name, :description, :user_id)
     end
 
 end

@@ -4,8 +4,12 @@
 
 
 /* @layer components {
-  .field-list {
-    @apply text-2xl text-slate-50 select-none;
+  .description {
+    @apply hidden 
+  }
+  
+  #description_toggle:checked ~ .description {
+    @apply block
   }
 } */
 
@@ -46,3 +50,4 @@
 
   box-shadow:  0 0 10px 0 rgba(0, 0, 0, 0.2), 0 5px 10px 0 rgba(0,0,0,0.19);
 }
+
