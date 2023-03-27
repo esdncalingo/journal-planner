@@ -29,6 +29,7 @@ class CategoriesController < ApplicationController
     end
 
     def show
+        #redirect_to "/home?category_id=#{params[:id]}"
     end
 
     def edit

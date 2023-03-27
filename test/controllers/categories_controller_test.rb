@@ -17,17 +17,17 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     get new_category_url
     assert_response :success
 
-    post categories_url, params: { category: { name: "New Category", user_id: users(:one).id } }
+    post categories_url, params: { category: { name: "New Category", user_id: users(:one).id } }, as: :turbo_stream
+    
     assert_response :redirect
     follow_redirect!
   end
 
   test "can edit category" do
-    get edit_category_path(:id => categories(:one).id, :name => categories(:one).name)
+    get edit_category_path(:id => categories(:one).id, :name => categories(:one).name), as: :turbo_steam
     assert_response :success
 
     patch category_path, params: { category: { name: "Category Updated" } }
-    print categories(:one).name
     assert_response :success
 
   end

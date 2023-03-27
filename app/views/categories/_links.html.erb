@@ -1,13 +1,14 @@
-
+<%= link_to :category => categories.id do %>
 <button class="relative grid grid-cols-[30px_220px_60px] grid-rows-[auto_auto] bg-zinc-700 items-center rounded-2xl drop-shadow-md 
 hover:ring hover:ring-amber-500 active:bg-amber-700 focus:outline-none focus:ring focus:ring-amber-500 select-none">
     
         <input type="checkbox" id="desc<%=categories.id%>" class="hidden peer/desc<%=categories.id%>">
         <label class=" flex gap-1 items-center justify-center p-1 w-[26px] h-[35px] bg-slate-200 rounded-tl-xl 
-        rounded-bl-xl text-center font-medium border-2 border-solid 
+        rounded-bl-xl text-center font-medium border-2 border-solid
         border-zinc-400 hover:bg-blue-200 peer/desc<%=categories.id%>" for="desc<%=categories.id%>"><i class="fa-sharp fa-solid fa-caret-down"></i></label>
         
-        <%= link_to categories.name, {:category_id => categories.id}, class: "font-bold text-blue-300 ml-2" %>
+        <%= link_to categories.name, {:category_id => categories.id}, class: "font-bold text-blue-300 ml-2 hover:bg-transparent" %>
+        
         <div class="flex gap-1 items-center justify-center p-1 bg-slate-200 rounded-xl text-center font-medium border-2 border-solid border-zinc-400 ml-auto">
             <%= link_to raw('<i class="fa-solid fa-pen-to-square"></i>'), edit_category_path(:id => categories.id), data: {turbo_frame: "modal"}, class: "hover:bg-blue-200"%>
             <span class="h-[20px] w-[1px] bg-slate-400 rounded-full"></span>
@@ -16,6 +17,7 @@ hover:ring hover:ring-amber-500 active:bg-amber-700 focus:outline-none focus:rin
     
         <div class="hidden relative peer-checked/desc<%=categories.id%>:block 
         col-span-full mt-1 bg-zinc-800 border-t-zinc-800 rounded-xl ">
-            <span class="shiro text-sm"><%=categories.description%></span>
+            <span class="shiro text-sm"><%=categories.description %></span>
         </div>
 </button>
+<% end %> 
