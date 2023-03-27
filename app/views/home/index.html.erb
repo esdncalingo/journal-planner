@@ -12,16 +12,16 @@
 
     <div class="flex gap-4 w-[100%] justify-center">
 
-        <div class="p-4 ring-slate-600 ring-2 ring-offset-2 ring-offset-amber-200 max-w-[800px]">
+        <div id="sidepanel" class="p-4 ring-slate-600 ring-2 ring-offset-2 ring-offset-amber-200 max-w-[800px]">
             <%= render 'categories/sidepanel'%>
         </div>
 
         <div class="w-[100%]">
             <div class="flex gap-2 items-center ml-4">
                 
-                <%= link_to "View Today Tasks", {:view => "today"}, class: "shiro"%>
+                <%= link_to "View Today Tasks", {:view => "today"}, class: "shiro rounded p-1 #{params[:view] === "today" ? 'bg-slate-500' : ''}"%>
                 <span class=" bg-slate-100 h-[20px] w-[2px] rounded-full"></span>
-                <%= link_to "View Completed Tasks", {:view => "completed"}, class: "shiro"%>
+                <%= link_to "View Completed Tasks", {:view => "completed"}, class: "shiro rounded p-1 #{params[:view] === "completed" ? 'bg-slate-500' : ''}"%>
             </div>
             <div>
                 <%= render 'tasks/table' %>

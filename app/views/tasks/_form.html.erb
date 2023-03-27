@@ -1,4 +1,13 @@
 <form action="/categories/<%=params[:category_id]%>/tasks<%="/#{params[:id]}"%>" method=<%=method%> class="flex flex-col gap-2 justify-center items-center bg-slate-500 p-6 rounded-3xl border-2 w-[400px] drop-shadow-md">
+
+    <% if @task.errors.any? %>
+        <ul>
+            <% @task.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+    <% end %>
+
     <label class="self-start" for="title">Title</label>
     <input name="title" type="text" class="w-[100%] rounded-lg" value="<%=@task.title%>">
 

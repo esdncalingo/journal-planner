@@ -3,7 +3,7 @@ class HomeController < ApplicationController
     before_action :selected_task, only: [:index, :show]
 
     def index
-        @categories = Category.all.where(user_id: current_user.id)
+        @categories = Category.order(created_at: :desc).where(user_id: current_user.id)
     end
 
     def new
@@ -32,10 +32,9 @@ class HomeController < ApplicationController
             category = Category.find(params[:category_id])
             @tasks = category.tasks
         elsif params[:view] === "completed"
-            @tasks = user.tasks.where(status: "completed")
+            @tasks = user.tasks.order(id: :asc).where(status: "completed")
         else
-            
-            @tasks = user.tasks.where('tasks.created_at BETWEEN ? AND ?', DateTime.now.beginning_of_day, DateTime.now.end_of_day).all
+            @tasks = user.tasks.order(id: :asc).where('tasks.created_at BETWEEN ? AND ?', DateTime.now.beginning_of_day, DateTime.now.end_of_day).all
         end
     end
 end

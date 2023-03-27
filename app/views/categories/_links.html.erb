@@ -1,5 +1,5 @@
 
-<button class="relative grid grid-cols-[30px_220px_60px] grid-rows-[auto_auto] bg-zinc-700 items-center p-1 rounded-2xl drop-shadow-md 
+<button class="relative grid grid-cols-[30px_220px_60px] grid-rows-[auto_auto] bg-zinc-700 items-center rounded-2xl drop-shadow-md 
 hover:ring hover:ring-amber-500 active:bg-amber-700 focus:outline-none focus:ring focus:ring-amber-500 select-none">
     
         <input type="checkbox" id="desc<%=categories.id%>" class="hidden peer/desc<%=categories.id%>">
@@ -14,8 +14,8 @@ hover:ring hover:ring-amber-500 active:bg-amber-700 focus:outline-none focus:rin
             <%= link_to raw('<i class="fa-solid fa-circle-plus"></i>'), new_category_task_path(categories), class: "hover:bg-blue-200" %>            
         </div>
     
-        <div class="hidden peer-checked/desc<%=categories.id%>:block 
-        col-span-full ">
-            <span class="shiro "><%=categories.description%></span>
+        <div class="hidden relative peer-checked/desc<%=categories.id%>:block 
+        col-span-full mt-1 bg-zinc-800 border-t-zinc-800 rounded-xl ">
+            <span class="shiro text-sm"><%=categories.description%></span>
         </div>
 </button>

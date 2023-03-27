@@ -17,6 +17,8 @@ class TasksController < ApplicationController
 
         if @task.save
             redirect_to "/home?category_id=#{params[:category_id]}", notice: "New task has been created"
+        else
+            render :new, status: :unprocessable_entity
         end
     end
 
@@ -30,6 +32,8 @@ class TasksController < ApplicationController
     def update
         if @task.update(tasks_params)
             redirect_to "/home?category_id=#{params[:category_id]}", notice: "Updated"
+        else
+            render :new, status: :unprocessable_entity
         end
     end
 

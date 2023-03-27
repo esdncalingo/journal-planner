@@ -1,10 +1,10 @@
 class CategoriesController < ApplicationController
     #after_action method/action, only: [:new]
+    before_action :category_list, only: [:index, :create, :update]
     before_action :get_category
     before_action :get_user
 
     def index
-        @categories = Category.all
     end
 
     def new
@@ -14,8 +14,17 @@ class CategoriesController < ApplicationController
     def create
         @category = @user.categories.new(category_params)
         
-        if @category.save
-            redirect_to "/home"
+        respond_to do |format|
+            if @category.save
+                format.turbo_stream do
+                   render turbo_stream: [
+                    turbo_stream.update("sidepanel", partial: "sidepanel" ,locals: {category: @categories}),
+                    turbo_stream.update("modal", "")
+                   ] 
+                end
+            else
+                render :new, status: :unprocessable_entity
+            end
         end
     end
 
@@ -26,14 +35,17 @@ class CategoriesController < ApplicationController
     end
 
     def update
-        if @category.update(category_params)
-            #redirect_to "/home?category_id=#{params[:id]}"
-            format.turbo_stream do
-                render turbo_stream: turbo_stream.redirect(model_url(@model))
+        respond_to do |format|
+            if @category.update(category_params)
+                format.turbo_stream do
+                    render turbo_stream: [
+                        turbo_stream.update("sidepanel", partial: "sidepanel" ,locals: {category: @categories}),
+                        turbo_stream.update("modal", "")
+                    ]
+                end
+            else
+                render :new, status: :unprocessable_entity
             end
-            format.html { redirect_to model_url(@model), notice: "Updated." }
-        else
-            format.html { render :edit, status: :unprocessable_entity }
         end
     end
 
@@ -54,6 +66,10 @@ class CategoriesController < ApplicationController
 
     def category_params
         params.require(:category).permit(:name, :description, :user_id)
+    end
+
+    def category_list
+        @categories = Category.order(created_at: :desc)
     end
 
 end
