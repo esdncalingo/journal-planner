@@ -10,8 +10,10 @@
         </div>
 
         <div class="grid grid-cols-[20px,200px,auto,100px,150px] gap-2 p-2 rounded-b-md">
-            <% @tasks.each do |item| %>
-                <%= render "tasks/list", item: item%>
+            <%if @tasks%>
+                <% @tasks.each do |item| %>
+                    <%= render "tasks/list", item: item%>
+                <%end%>
             <%end%>
         </div>  
     </div>

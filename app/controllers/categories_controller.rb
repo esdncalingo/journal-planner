@@ -69,7 +69,7 @@ class CategoriesController < ApplicationController
     end
 
     def category_list
-        @categories = Category.order(created_at: :desc)
+        @categories = Category.order(created_at: :desc).where(user_id: current_user.id)
     end
 
 end

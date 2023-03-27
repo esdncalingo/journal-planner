@@ -33,7 +33,7 @@ class HomeController < ApplicationController
             @tasks = category.tasks
         elsif params[:view] === "completed"
             @tasks = user.tasks.order(id: :asc).where(status: "completed")
-        else
+        elsif params[:view] === "today"
             @tasks = user.tasks.order(id: :asc).where('tasks.created_at BETWEEN ? AND ?', DateTime.now.beginning_of_day, DateTime.now.end_of_day).all
         end
     end
