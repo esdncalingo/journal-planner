@@ -4,8 +4,14 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
+one:
+ title: "Task #1"
+ description: "Description Task#1"
+ category_id: cat_one
+ status: "ongoing"
 #
-two: {}
-# column: value
+two:
+ title: "Task #2"
+ description: "Description Task#2"
+ category_id: cat_two
+ status: "ongoing"

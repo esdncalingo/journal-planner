@@ -15,6 +15,14 @@
         <%=f.label "Description", class: "self-start font-bold"%>
         <%=f.text_area :description, class: "w-[100%] rounded-lg min-h-[200px] p-2"%>
 
-        <%=f.submit :class => "h-[40px] w-[140px] bg-slate-200 rounded-lg ring-2 ring-amber-500 ring-offset-2 hover:ring-4 mt-4" %>
+        <div class="flex gap-4 mt-4">
+            <%=f.submit :class => "h-[30px] w-[130px] bg-slate-200 rounded-lg ring-2 ring-amber-500 ring-offset-2 hover:ring-4 " %>
+            <%= link_to "Cancel", "#", data: {
+                controller: "modals",
+                action: "modals#close",
+                },
+                class: "h-[30px] w-[130px] bg-slate-200 rounded-lg ring-2 ring-amber-500 ring-offset-2 hover:ring-4  text-center"
+                %>
+        </div>
     </div>
 <%end%>

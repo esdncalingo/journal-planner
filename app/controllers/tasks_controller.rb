@@ -15,10 +15,12 @@ class TasksController < ApplicationController
         @task = @category.tasks.new(tasks_params)
         @task.status = "ongoing"
 
-        if @task.save
-            redirect_to "/home?category_id=#{params[:category_id]}", notice: "New task has been created"
-        else
-            render :new, status: :unprocessable_entity
+        respond_to do |format|
+            if @task.save
+                format.html {redirect_to "/home?category_id=#{params[:category_id]}", notice: "New task has been created" }
+            else
+                render :new, status: :unprocessable_entity
+            end
         end
     end
 
@@ -30,10 +32,12 @@ class TasksController < ApplicationController
     end
 
     def update
-        if @task.update(tasks_params)
-            redirect_to "/home?category_id=#{params[:category_id]}", notice: "Updated"
-        else
-            render :new, status: :unprocessable_entity
+        respond_to do |format|
+            if @task.update(tasks_params)
+                format.html {redirect_to "/home?category_id=#{params[:category_id]}", notice: "Updated"}
+            else
+                render :new, status: :unprocessable_entity
+            end
         end
     end
 
